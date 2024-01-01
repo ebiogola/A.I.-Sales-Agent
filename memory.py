@@ -10,7 +10,7 @@ from langchain.vectorstores import Chroma
 import transformers
 
 #Loading the document
-loader = UnstructuredFileLoader("./Test.txt")
+loader = UnstructuredFileLoader("C:\\Users\\ebiog\\OneDrive\\Documents\\Master projects\\A.I. Sales Agent\\stockprice_text.txt")
 documents = loader.load()
 
 #Text splitting

@@ -9,7 +9,7 @@ from langchain.vectorstores import Chroma
 
 
 # OpenAI key
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 
 # OpenAI LLM 
 llm = OpenAI(temperature=0.9, verbose=True)
@@ -19,7 +19,7 @@ llm = OpenAI(temperature=0.9, verbose=True)
 #Document Loader and Splitter
 loader = UnstructuredFileLoader("C:/Users/ebiog/OneDrive/Documents/Master projects/A.I. Sales Agent/stockprice_text.txt")
 documents = loader.load()
-text_splitter = CharacterTextSplitter(chunk_size=1500, chunk_overlap=0)
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 texts = text_splitter.split_documents(documents)
 
 # Embeddings and vectorstores

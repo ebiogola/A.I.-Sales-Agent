@@ -7,12 +7,12 @@ from langchain.vectorstores import Chroma
 from langchain import HuggingFacePipeline
 
 #Document Loader and Splitter 
-loader = UnstructuredFileLoader("./Test.txt")
+loader = UnstructuredFileLoader("C:/Users/ebiog/OneDrive/Documents/Master projects/A.I. Sales Agent/stockprice_text.txt")
 documents = loader.load()
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
-texts = text_splitter.split_documents(documents)
+texts = text_splitter.split_documents(documents
 
-llm = HuggingFacePipeline.from_model_id(model_id="gpt2", task="text-generation", pipeline_kwargs={"temperature":.9, "max_length":1000})
+llm = HuggingFacePipeline.from_model_id(model_id="google/flan-t5-base", task="text2text Generation", pipeline_kwargs={"temperature":.9, "max_length":1000})
 
 # Embeddings and Vectorstores
 directory='db'
@@ -23,6 +23,6 @@ docsearch = Chroma(persist_directory=directory, embedding_function=embeddings)
 qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=docsearch.as_retriever())
 
 # Prompt
-query = "What is the cost of your data science course?"
+query = "What is the price of MULTIVERS"
 response = qa.run(query)
 print(response)
